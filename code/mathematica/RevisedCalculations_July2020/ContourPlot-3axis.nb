@@ -1,0 +1,70 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1804,         60]
+NotebookOptionsPosition[      1213,         42]
+NotebookOutlinePosition[      1725,         59]
+CellTagsIndexPosition[      1682,         56]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Contour plot for the triaxial rotor", "Chapter",
+ CellChangeTimes->{{3.804931190842371*^9, 
+  3.8049312048047743`*^9}},ExpressionUUID->"52a306cf-39c6-43d3-b160-\
+561e1b4e2ebb"],
+
+Cell[TextData[{
+ "3-axis quantization: ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalI]", "3"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "e1383247-895a-4e52-ad34-2790fa55f2d6"],
+ "- maximal M.O.I"
+}], "Section",
+ CellChangeTimes->{{3.804931207492778*^9, 3.8049312232324047`*^9}, {
+  3.804931261426606*^9, 
+  3.804931265365073*^9}},ExpressionUUID->"c0c27bf8-5ee4-42e7-afc1-\
+744b3262c44f"]
+}, Open  ]]
+},
+WindowSize->{960, 1035},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "Applications", 
+   "Mathematica.app", "Contents", "SystemFiles", "FrontEnd", "StyleSheets"}, 
+  "Times_Basavyr_Unique.nb", CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 182, 3, 61, "Chapter",ExpressionUUID->"52a306cf-39c6-43d3-b160-561e1b4e2ebb"],
+Cell[765, 27, 432, 12, 59, "Section",ExpressionUUID->"c0c27bf8-5ee4-42e7-afc1-744b3262c44f"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

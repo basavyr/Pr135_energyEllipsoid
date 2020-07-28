@@ -1,0 +1,88 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2368,         80]
+NotebookOptionsPosition[      1646,         59]
+NotebookOutlinePosition[      2158,         76]
+CellTagsIndexPosition[      2115,         73]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Contour plot for the triaxial rotor", "Chapter",
+ CellChangeTimes->{{3.804931190842371*^9, 
+  3.8049312048047743`*^9}},ExpressionUUID->"80912281-d8ae-4da8-8c3d-\
+356eee9498fc"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1-axis quantization: ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalI]", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "58e07102-eb18-41be-9f45-1665833b2e7f"],
+ "- maximal M.O.I"
+}], "Section",
+ CellChangeTimes->{{3.804931207492778*^9, 
+  3.8049312232324047`*^9}},ExpressionUUID->"114e271a-153f-42d4-b03d-\
+fa1350e96447"],
+
+Cell[TextData[{
+ "Computing the contour plot for the triaxial nucleus when the first axis has \
+the largest moment of inertia. The parameters must correspond to positive \
+inertial factor ",
+ StyleBox["A ",
+  FontSlant->"Italic"],
+ "and positive ",
+ StyleBox["k",
+  FontSlant->"Italic"],
+ " number."
+}], "Subsection",
+ CellChangeTimes->{{3.8049312816944323`*^9, 
+  3.804931342699774*^9}},ExpressionUUID->"6f4c1238-fe7f-4935-8144-\
+a88926600b05"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{960, 1035},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "Applications", 
+   "Mathematica.app", "Contents", "SystemFiles", "FrontEnd", "StyleSheets"}, 
+  "Times_Basavyr_Unique.nb", CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 182, 3, 61, "Chapter",ExpressionUUID->"80912281-d8ae-4da8-8c3d-356eee9498fc"],
+Cell[CellGroupData[{
+Cell[787, 29, 383, 11, 59, "Section",ExpressionUUID->"114e271a-153f-42d4-b03d-fa1350e96447"],
+Cell[1173, 42, 445, 13, 69, "Subsection",ExpressionUUID->"6f4c1238-fe7f-4935-8144-a88926600b05"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
