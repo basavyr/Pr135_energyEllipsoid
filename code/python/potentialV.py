@@ -72,10 +72,17 @@ def Potential(q,I,I1,I2,I3,j,theta):
     c=cn(q,k)
     d=dn(q,k)
     t2=(2.0*I+1)*v0*c*d
+    V=t1*np.power(s,2)+t2
+    return V
 
+params=[9.5,91,11,59,5.5,-57]
 
-# print(GenerateJAs(1.1))
-# print(JacobiAmplitude(0.5,0.5)[3])
-print(AFunction(9.5,30,100,5.5,30))
-print(uFunction(9.5,30,100,80,5.5,30))
-print(kFunction(9.5,30,100,80,5.5,30))
+qValues=np.arange(-8,8.1,0.2)
+Vq=[]
+for q in qValues:
+    id_V=Potential(q,params[0],params[1],params[2],params[3],params[4],params[5])
+    Vq.append(id_V)
+
+plt.plot(qValues,Vq,'-r')
+plt.savefig('potential.pdf',bbox_inches='tight')
+plt.close()
