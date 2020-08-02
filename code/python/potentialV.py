@@ -34,7 +34,7 @@ def v0Function(I,I1,I2,j,theta):
     return (-1.0)*A1*j1/AFunction(I,I1,I2,j,theta)
 
 def kFunction(I,I1,I2,I3,j,theta):
-    return np.sqrt(uFunction(I,I1,I2,I3,j,theta))
+    return np.sqrt(abs(uFunction(I,I1,I2,I3,j,theta)))
 
 def JacobiAmplitude(q,k):
     k2=np.power(k,2)
@@ -75,9 +75,9 @@ def Potential(q,I,I1,I2,I3,j,theta):
     V=t1*np.power(s,2)+t2
     return V
 
-params=[9.5,91,11,59,5.5,-57]
+params=[11.5,90,100,80,5.5,-80]
 
-qValues=np.arange(-8,8.1,0.2)
+qValues=np.arange(-8.0,8.1,0.2)
 Vq=[]
 for q in qValues:
     id_V=Potential(q,params[0],params[1],params[2],params[3],params[4],params[5])
