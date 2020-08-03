@@ -141,15 +141,17 @@ kValues = []
 uValues = []
 v0Values = []
 
-for q in qValues:
+thetas = np.arange(-180.0, 180.5, 1.0)
+
+for q in thetas:
     AValues.append(
-        AFunction(params[0], params[1], params[2], params[4], params[5]))
+        AFunction(params[0], params[1], params[2], params[4], q))
     kValues.append(
-        kFunction(params[0], params[1], params[2], params[3], params[4], params[5]))
+        kFunction(params[0], params[1], params[2], params[3], params[4], q))
     uValues.append(
-        uFunction(params[0], params[1], params[2], params[3], params[4], params[5]))
+        uFunction(params[0], params[1], params[2], params[3], params[4], q))
     v0Values.append(
-        v0Function(params[0], params[1], params[2], params[4], params[5]))
+        v0Function(params[0], params[1], params[2], params[4], q))
 
 inertialData = [AValues, kValues, uValues, v0Values]
 potentials = []
@@ -161,19 +163,20 @@ for I in spins:
     potentials.append(CreatePotentialData(I, qValues))
 
 
-def ShowDataToMathematica(qValues, YDATA, filename,names):
+def ShowDataToMathematica(xdata, YDATA, filename, names):
     count = 0
     f = open(filename, 'w')
     for y_data in YDATA:
-        WriteData(qValues, y_data, f, names[count])
+        WriteData(xdata, y_data, f, names[count])
         count = count+1
     f.close()
 
 
 PlotPotential(qValues, spins)
 
-ShowDataToMathematica(qValues, inertialData, 'inertialParams.dat',inertial_names)
-ShowDataToMathematica(qValues, potentials, 'potentials.dat',potential_names)
+ShowDataToMathematica(thetas, inertialData,
+                      'inertialParams.dat', inertial_names)
+ShowDataToMathematica(qValues, potentials, 'potentials.dat', potential_names)
 
 
 # Vq = CreatePotentialData(spins[1], qValues)
