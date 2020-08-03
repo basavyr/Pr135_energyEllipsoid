@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 def GenerateSpins(I_0,I_max):
     spins=[]
@@ -43,7 +44,10 @@ spinValue=19/2
 j=11/2
 theta=30
 
+thetas=np.arange(-180.0,180.5,1.0)
+avalues=[]
+for th in thetas:
+    avalues.append(AFunction(spinValue,90,100,5.5,th))
 
-print(AFunction(spinValue,20,40,j,theta))
-print(uFunction(spinValue,20,40,10,j,theta))
-print(v0Function(spinValue,20,40,j,theta))
+plt.plot(thetas,avalues)
+plt.savefig('potential.pdf',bbox_inches='tight')

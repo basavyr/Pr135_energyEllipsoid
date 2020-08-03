@@ -99,10 +99,10 @@ def WriteData(X, Y, file, dataname):
     for id in range(len(X)):
         count = count+1
         s = "{"+str(round(float(X[id]), 3))+" , " + \
-            str(round(float(Y[id]), 3))+"},"
+            str(Y[id])+"},"
         if(count == len(X)):
             s = "{"+str(round(float(X[id]), 3)) + \
-                " , "+str(round(float(Y[id]), 3))+"}"
+                " , "+str(Y[id])+"}"
         file.write(s)
     file.write(" };\n")
     # file.write("ListLinePlot["+str(dataname)+"]")
@@ -134,14 +134,14 @@ def PlotPotential(qData, IData):
 
 
 spins = [7.5, 9.5, 11.5, 13.5]
-params = [spins[1], 90, 100, 80, 5.5, -80]
+params = [spins[1], 90.0, 100.0, 80.0, 5.5, -80]
 
 AValues = []
 kValues = []
 uValues = []
 v0Values = []
 
-thetas = np.arange(-180.0, 180.5, 1.0)
+thetas = np.arange(-180.0, 180.5, 10.0)
 
 for q in thetas:
     AValues.append(
