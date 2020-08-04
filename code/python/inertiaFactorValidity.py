@@ -73,11 +73,11 @@ for th in thetas:
 
 plt.plot(thetas,avalues,'-r')
 plt.plot(thetas,avaluesChiral,'-b')
-plt.savefig('potential.pdf',bbox_inches='tight')
+plt.savefig('../../out/potential.pdf',bbox_inches='tight')
 
 mois=np.arange(1.0,120.5,10.0)
 
-f=open('validParams.dat','w')
+f=open('../../out/validParams.dat','w')
 
 for i1 in mois:
     for i2 in mois:
