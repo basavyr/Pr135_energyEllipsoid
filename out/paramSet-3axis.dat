@@ -6487,3 +6487,5 @@ I1=101.0  I2=91.0  I3=111.0 θ=-20.0
 I1=101.0  I2=91.0  I3=111.0 θ=-10.0
 I1=101.0  I2=91.0  I3=111.0 θ=0.0
 I1=101.0  I2=91.0  I3=111.0 θ=180.0
+The number of valid params is: 6487
+The validity checker process took1.1942716199999994seconds

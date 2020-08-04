@@ -134,6 +134,9 @@ def ShowParams(I, k):
     for p in paramSet:
         file.write('I1='+str(p[0])+'  I2='+str(p[1]) +
                    '  I3='+str(p[2])+' θ='+str(p[3])+'\n')
+    file.write('The number of valid params is: '+str(AxisQ(I, k)[1])+'\n')
+    file.write('The validity checker process took ' +
+               str(stop-start) + 'seconds'+'\n')
 
     file.close()
 

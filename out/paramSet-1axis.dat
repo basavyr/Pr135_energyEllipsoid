@@ -7685,3 +7685,5 @@ I1=111.0  I2=101.0  I3=91.0 θ=-50.0
 I1=111.0  I2=101.0  I3=91.0 θ=-40.0
 I1=111.0  I2=101.0  I3=91.0 θ=-30.0
 I1=111.0  I2=101.0  I3=91.0 θ=-20.0
+The number of valid params is: 7685
+The validity checker process took1.17375184seconds
