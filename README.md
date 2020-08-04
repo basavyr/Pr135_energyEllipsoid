@@ -25,3 +25,5 @@ The energy surface is graphically represented, together with the triaxial potent
 For [Journal of Physics G](https://iopscience.iop.org/journal/0954-3899), a revised and overall **improved** version of the paper must be submitted.
 
 The tasks required for improving the results are related to the inertial parameter. One must redo the contour plots with new parameters.
+
+![](./reports/2020-08-04-09-28-31.png)
