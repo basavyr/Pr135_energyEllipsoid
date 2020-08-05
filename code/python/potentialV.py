@@ -41,7 +41,9 @@ def v0Function(I, I1, I2, j, theta):
 
 
 def kFunction(I, I1, I2, I3, j, theta):
-    return np.sqrt(abs(uFunction(I, I1, I2, I3, j, theta)))
+    if(uFunction(I, I1, I2, I3, j, theta) >= 0.0):
+        return np.sqrt(uFunction(I, I1, I2, I3, j, theta))
+    return -1
 
 
 def JacobiAmplitude(q, k):
@@ -122,6 +124,15 @@ def CreatePotentialData(I, qValues):
     return Vq
 
 
+def CreatePotential(qValues, params):
+    Vq = []
+    for q in qValues:
+        id_V = Potential(q, params[0], params[1],
+                         params[2], params[3], params[4], params[5])
+        Vq.append(id_V)
+    return Vq
+
+
 def PlotPotential(qData, IData):
     styles = ['-r', '--r', '-b', '--b', '-k', '--k']
     for I in IData:
@@ -129,7 +140,7 @@ def PlotPotential(qData, IData):
         style = np.random.choice(styles)
         plt.plot(qData, Vq, style, label="I="+str(I))
     plt.legend(loc='best')
-    plt.savefig('potential.pdf', bbox_inches='tight')
+    plt.savefig('../../out/potential.pdf', bbox_inches='tight')
     plt.close()
 
 
@@ -172,11 +183,12 @@ def ShowDataToMathematica(xdata, YDATA, filename, names):
     f.close()
 
 
-PlotPotential(qValues, spins)
+# PlotPotential(qValues, spins)
 
-ShowDataToMathematica(thetas, inertialData,
-                      'inertialParams.dat', inertial_names)
-ShowDataToMathematica(qValues, potentials, 'potentials.dat', potential_names)
+# ShowDataToMathematica(thetas, inertialData,
+#                       '../../out/inertialParams.dat', inertial_names)
+# ShowDataToMathematica(qValues, potentials,
+#                       '../../out/potentials.dat', potential_names)
 
 
 # Vq = CreatePotentialData(spins[1], qValues)
@@ -184,3 +196,13 @@ ShowDataToMathematica(qValues, potentials, 'potentials.dat', potential_names)
 # f = open('test.dat', 'w')
 # WriteData(qValues, Vq, f)
 # f.close()
+
+def Pset(theta):
+    params = [9.5, 80, 100, 90, 5.5, theta]
+    return params
+
+
+V1 = CreatePotential(qValues, Pset(-80))
+V2 = CreatePotential(qValues, Pset(100))
+print(V1)
+print(V2)
