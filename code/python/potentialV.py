@@ -176,7 +176,9 @@ for I in spins:
 
 def ShowDataToMathematica(xdata, YDATA, filename, names):
     count = 0
-    f = open(filename, 'w')
+    prefix='../../out/'
+    actualFile=prefix+filename
+    f = open(actualFile, 'w')
     for y_data in YDATA:
         WriteData(xdata, y_data, f, names[count])
         count = count+1
@@ -197,12 +199,20 @@ def ShowDataToMathematica(xdata, YDATA, filename, names):
 # WriteData(qValues, Vq, f)
 # f.close()
 
+#!modify this method if other parameters are needed
 def Pset(theta):
     params = [9.5, 80, 100, 90, 5.5, theta]
     return params
 
 
-V1 = CreatePotential(qValues, Pset(-80))
-V2 = CreatePotential(qValues, Pset(100))
-print(V1)
-print(V2)
+def CreatePotentialTuple(spin, theta):
+    theta_chiral = theta+180
+    V = CreatePotential(qValues, Pset(theta))
+    V_chiral = CreatePotential(qValues, Pset(theta_chiral))
+    potentials = [V, V_chiral]
+    return potentials
+
+
+chiral_potentials = CreatePotentialTuple(9.5, -80)
+chiral_potentials_names=['V(q)[θ]','V(q)[θ_chiral]']
+ShowDataToMathematica(qValues, chiral_potentials,'chiralPotential.dat',chiral_potentials_names)
