@@ -111,6 +111,7 @@ def PlotPotential(I,theta):
     #V[1] is the potential for the chiral transformation on the nucleus, with the angle theta=theta+pi
     plt.plot(qValues,V[0],'-b',label=f'$V$')
     plt.plot(qValues,V[1],'-r',label=f'$V_c$')
+    plt.legend(loc='best')
     plt.savefig(filename,bbox_inches='tight')
 
 
