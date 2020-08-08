@@ -26,4 +26,14 @@ For [Journal of Physics G](https://iopscience.iop.org/journal/0954-3899), a revi
 
 The tasks required for improving the results are related to the inertial parameter. One must redo the contour plots with new parameters.
 
-![](./reports/2020-08-04-09-28-31.png)
+### Fixing inconsistency between Py3 and Math
+
+The Python3 and Mathematica implementations had issues with obtaining consistent results for the potential tuple ($V(q)$ and $V'(q)$).
+
+By fixing the total spin $I$ and the single particle's angular momentum $j$, one can obtain the numerical values for the potentials after the _parameter set_ is also numerically fixed. The inertial parameters $A, v_0,u,k$ are computed at a value of the coupling angle $\theta$, but also $\theta'=\theta+\pi$.
+
+The main issue which occurs when the algorithms are computing the values of the potential is related to the ordering of the moments of inertia.
+
+More precisely, in the term $u$ and $k$ (where $k=\sqrt{u}$), the sign of $u$ is given by the difference between the first and the third moments of inertia. If the difference $A_3-A_1$ is negative, then the inertial parameter $k$ will be a complex number. In order to fix this, for this special case, the quantity $k$ will be fixed $k=\sqrt{|u|}$ in both implementations.
+
+See [this commit](https://github.com/basavyr/Pr135_energyEllipsoid/commit/bb672e73e7fad1fbb27ae9044ccc503179bbceb1) for the actual solution implemented.

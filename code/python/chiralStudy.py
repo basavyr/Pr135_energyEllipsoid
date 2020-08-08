@@ -133,7 +133,7 @@ print(k(params[0], params[1], params[2], params[3], params[4], thval))
 print(v0(params[0], params[1], params[2], params[4], thval))
 print(Vq(0.0, params[0], params[1], params[2], params[3], params[4], thval))
 print('########################')
-print(f'Params for θ={thval_chiral}')
+print(f'Params for th={thval_chiral}')
 print(k(params[0], params[1], params[2], params[3], params[4], thval_chiral))
 print(v0(params[0], params[1], params[2], params[4], thval_chiral))
 print(Vq(0.0, params[0], params[1], params[2],
