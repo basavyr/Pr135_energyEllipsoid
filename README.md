@@ -37,3 +37,15 @@ The main issue which occurs when the algorithms are computing the values of the 
 More precisely, in the term $u$ and $k$ (where $k=\sqrt{u}$), the sign of $u$ is given by the difference between the first and the third moments of inertia. If the difference $A_3-A_1$ is negative, then the inertial parameter $k$ will be a complex number. In order to fix this, for this special case, the quantity $k$ will be fixed $k=\sqrt{|u|}$ in both implementations.
 
 See [this commit](https://github.com/basavyr/Pr135_energyEllipsoid/commit/bb672e73e7fad1fbb27ae9044ccc503179bbceb1) for the actual solution implemented.
+
+### Potential *quality*
+
+The quality of the plot depends on the number of $\theta$ values at which the potential tuple $(V,V')$ is evaluated. Higher number of *evaluation points* will consist in a smoother potential curve. Below there is an example of a plot with low number of eval. points and a high number of eval. points.
+
+___
+*Low eval points plot.*
+![](out/out-1.png)
+
+___
+*High eval points plot.*
+![](out/out_strong-1.png)

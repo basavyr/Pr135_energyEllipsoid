@@ -83,7 +83,7 @@ def Vq(q, I, I1, I2, I3, j, theta):
     return T1+T2
 
 
-qValues = np.arange(-8.0, 8.1, 1.5)
+qValues = np.arange(-8.0, 8.1, 0.25)
 thetas = np.arange(-180.0, 180.1, 10.0)
 
 
@@ -128,7 +128,7 @@ params = [9.5, 85, 100,  65, 5.5]
 thval = -80.0
 thval_chiral = thval+180.0
 PlotPotential(params, thval)
-print(f'Params for θ={thval}')
+print(f'Params for th={thval}')
 print(k(params[0], params[1], params[2], params[3], params[4], thval))
 print(v0(params[0], params[1], params[2], params[4], thval))
 print(Vq(0.0, params[0], params[1], params[2], params[3], params[4], thval))
