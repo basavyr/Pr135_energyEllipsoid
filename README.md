@@ -42,10 +42,14 @@ See [this commit](https://github.com/basavyr/Pr135_energyEllipsoid/commit/bb672e
 
 The quality of the plot depends on the number of $\theta$ values at which the potential tuple $(V,V')$ is evaluated. Higher number of *evaluation points* will consist in a smoother potential curve. Below there is an example of a plot with low number of eval. points and a high number of eval. points.
 
-___
-*Low eval points plot.*
 ![](out/out-1.png)
+*Low eval points plot.*
 
-___
-*High eval points plot.*
 ![](out/out_strong-1.png)
+*High eval points plot.*
+
+## Triaxial Potential Workflow
+
+![](./reports/RevisedDraft_July2020/TriaxialPotentialCalculation.jpg)
+*The overall workflow of the algorithm for determining a valid set of parameters to be used in the calculation of the excitation energies for $^{135}$Pr.*
+
