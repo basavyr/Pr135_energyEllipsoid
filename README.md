@@ -53,3 +53,15 @@ The quality of the plot depends on the number of $\theta$ values at which the po
 ![](./reports/RevisedDraft_July2020/TriaxialPotentialCalculation.jpg)
 *The overall workflow of the algorithm for determining a valid set of parameters to be used in the calculation of the excitation energies for $^{135}$Pr.*
 
+## August 2020 Update
+
+With this update, the project is extended with a calculation of the **wobbling energies** for $^{135}$Pr triaxial nucleus.
+The energies depend on the parameters discussed in the previous sections (e.g. three *moments of inertia* and one *coupling angle*). All the calculations are done with a fixed total spin and single-particle angular momentum.
+
+**Main goal:** Use only valid parameters to compute the excitation energies for the triaxial nucleus, then use those energies to find the *best parameter set* which produces the smallest deviation from experiment.
+
+**Python3 implementation**: The algorithm will be developed in Python3, where the `rms` will be calculated for all the valid parameter sets, then the smallest `rms` value will be considered the final result.
+
+### Overall workflow with finding the RMS 
+
+![](./reports/RevisedDraft_July2020/ValidParams_RMS.jpg)
