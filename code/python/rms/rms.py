@@ -1,4 +1,6 @@
 import numpy as np
+from timeit import default_timer as timer
+import time
 
 params = [5.2, 1.9, 2.0, -0.1]
 data_exp = [[1, 9.], [2, 8.9], [3, 8.8], [
@@ -9,8 +11,9 @@ def Fct(i1, i2, i3, th, x):
     return i1+i2+i3+th*x
 
 
-mois = np.arange(1.0, 6.1, 0.15)
+mois = np.arange(1.0, 6.1, 0.5)
 thetas = np.arange(-3.0, 3.0, 0.1)
+
 
 params_array = []
 
@@ -27,7 +30,6 @@ def CreateParams(params_array):
 
 CreateParams(params_array)
 
-print(len(params_array))
 
 def GenerateTheoreticalData(exp_data, i1, i2, i3, th):
     th_data = []
@@ -41,7 +43,7 @@ def GenerateTheoreticalData(exp_data, i1, i2, i3, th):
 def Compute_RMS(exp_data, th_data):
     if(len(exp_data) != len(th_data)):
         return np.nan
-    sum = 0.0
+    sum_t = 0.0
     count = 0
     for id in range(len(exp_data)):
         if(th_data[id][1] == np.nan):
@@ -50,23 +52,28 @@ def Compute_RMS(exp_data, th_data):
         term = np.power(diff, 2)
         if(term != np.nan):
             count = count+1
-        sum = sum+term
+        sum_t = sum_t+term
     if(count == len(exp_data)):
         return round(np.sqrt(sum/len(exp_data)), 3)
     else:
         return np.nan
 
 
-rms_array = []
+def GetMinRMS(params_array):
+    start = timer()
+    rms_array = []
+    for set in params_array:
+        data_th = GenerateTheoreticalData(
+            data_exp, set[0], set[1], set[2], set[3])
+        rms_array.append(Compute_RMS(data_exp, data_th))
+    end = timer()
+    min_params = params_array[rms_array.index(min(rms_array))]
+    rms_array = np.sort(rms_array)
+    min_rms = rms_array[0]
+    print(f'The best parameters are: P={min_params}')
+    print(f'The RMS of the data set is: {min_rms}')
+    print(f'Process Duration: {(end-start)} seconds')
+    # print(params_array[rms_array.index(min(rms_array))])
 
 
-# for set in params_array:
-#     data_th = GenerateTheoreticalData(data_exp, set[0], set[1], set[2], set[3])
-#     rms_array.append(Compute_RMS(data_exp, data_th))
-    # print(Compute_RMS(data_exp,data_th))
-
-
-# print(params_array[rms_array.index(min(rms_array))])
-rms_array = np.sort(rms_array)
-# print(rms_array[0])
-# print(Compute_RMS(data_exp,data_th))
+GetMinRMS(params_array)
