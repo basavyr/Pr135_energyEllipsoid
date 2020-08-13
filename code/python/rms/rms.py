@@ -12,8 +12,8 @@ def Fct(i1, i2, i3, th, x):
     return i1+i2+i3+th*x
 
 
-mois = np.arange(1.0, 6.1, 0.5)
-thetas = np.arange(-3.0, 3.0, 0.1)
+mois = np.arange(1.5, 6.0, 0.5)
+thetas = np.arange(-1.0, 1.0, 0.1)
 
 
 def CreateParams():
@@ -69,22 +69,35 @@ def GetMinRMS(params_array):
         rms_array.append(Compute_RMS(data_exp, data_th))
     end = timer()
     min_params = params_array[rms_array.index(min(rms_array))]
-    rms_array = np.sort(rms_array)
+    rms_array_sorted = np.sort(rms_array)
     min_rms = rms_array[0]
-    print(f'The best parameters are: P={min_params}')
-    print(f'The RMS of the data set is: {min_rms}')
+    # print(f'The best parameters are: P={min_params}')
+    # print(f'The RMS of the data set is: {min_rms}')
+    print(rms_array)
+    print(rms_array_sorted)
     print(f'Process Duration: {(end-start)} seconds')
     # print(params_array[rms_array.index(min(rms_array))])
 
-print(Compute_RMS(data_exp,test_th_data))
+# print(Compute_RMS(data_exp,test_th_data))
 
 # GetMinRMS(params_array)
 
-array_test=[]
-testarr=rd.rand(10)
-for x in testarr:
-    array_test.append(x)
+def PrintRMSResults(exp_data,params_array):
+    print('Opening file...')
+    file=open('../../../out/rms_test.dat','w')
+    ok=1
+    for pars in params_array:
+        th_data=GenerateTheoreticalData(exp_data,pars[0],pars[1],pars[2],pars[3])
+        retval=Compute_RMS(exp_data,th_data)
+        file.write(str(pars[0])+' '+str(pars[1])+' ' +str(pars[2])+' '+str(pars[3]))
+        file.write('  |  ')
+        file.write(str(retval))
+        file.write('\n')
+        if(ok==1):
+            print('Writing data...')
+            ok=0
+        # print(pars,retval)
+    file.close()
+    print('Closing file...')
 
-print(array_test)
-min_id=array_test.index(min(array_test))
-print(min_id,array_test[min_id])
+PrintRMSResults(data_exp,params_array)
