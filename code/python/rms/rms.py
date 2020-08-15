@@ -133,5 +133,8 @@ def PrintRMSResults(exp_data, params_array):
 
 new_expData = [[1., 4.37565], [1.5, 4.18697], [2., 2.72835], [2.5, 0.112055], [3., -3.26618], [3.5, -6.82407], [4., -9.93537], [4.5, -12.0832], [5., -12.9864], [5.5, -12.6688], [6., -11.453], [6.5,-9.88138], [7., -8.58367], [7.5, -8.1224], [8., -8.85534], [8.5, -10.8479], [9., -13.857], [9.5, -17.3908], [10., -20.8289]]
 
-PrintRMSResults(new_expData, params_array)
-GetMinRMS(new_expData,params_array)
+# PrintRMSResults(new_expData, params_array)
+# GetMinRMS(new_expData,params_array)
+
+mathparams=[5.2,1.0,2.0,-1.0]
+print(ExperimentalData(xvalues,mathparams))
