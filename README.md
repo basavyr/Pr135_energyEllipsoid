@@ -65,3 +65,7 @@ The energies depend on the parameters discussed in the previous sections (e.g. t
 ### Overall workflow with finding the RMS 
 
 ![](./reports/RevisedDraft_July2020/ValidParams_RMS.jpg)
+
+[This commit](https://github.com/basavyr/Pr135_energyEllipsoid/commit/07ffa22cfa5d255e5e22a5b37be8d57ab499833e) adds the workflow. 
+
+[ ] - the update must solve [the issue](https://github.com/basavyr/Pr135_energyEllipsoid/issues/1).
