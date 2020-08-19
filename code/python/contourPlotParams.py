@@ -47,19 +47,21 @@ def kFunction(I, I1, I2, I3, j, theta):
 
 
 def A3C1(I, I1, I2, I3, j, theta, file):
+    if(I1 == I2 or I1 == I3 or I2 == I3):
+        return
     u = uFunction(I, I1, I2, I3, j, theta)
     A = AFunction(I, I1, I2, j, theta)
     k = kFunction(I, I1, I2, I3, j, theta)
     M = max(I1, I2, I3)
-    if(u < 0.0 and u > -1.0 and A > 0 and k < 1.0 and (M == I1)):
+    if(u < 0.0 and u > -1.0 and (M == I1)):
         print(I1, I2, I3, A, u, k)
         # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
         #            ' '+str(A)+' '+str(u)+' '+str(k)+'\n')
         file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta)+'\n')
 
 
-mois = np.arange(1.0, 121.0, 1.0)
-thetas = np.arange(-180.0, 181.0, 1.0)
+mois = np.arange(1.0, 121.0, 5.0)
+thetas = np.arange(-180.0, 181.0, 5.0)
 
 file = open('../../out/contourParams.dat', 'w')
 for i1 in mois:
