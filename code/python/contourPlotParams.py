@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import time
+
 
 def SP_AngularComponents(j, theta):
     th = (theta*np.pi)/180.0
@@ -155,5 +157,9 @@ class FindContourParams:
             print('No quantization chosen...')
 
 
+start = time.time()
 x = FindContourParams(1)
 x.FindParams()
+stop = time.time()
+
+print(f'The thread slept for {stop-start} s...')
