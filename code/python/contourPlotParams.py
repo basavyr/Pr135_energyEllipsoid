@@ -46,14 +46,28 @@ def kFunction(I, I1, I2, I3, j, theta):
     return k
 
 
-def A3C1(I, I1, I2, I3, j, theta, file):
+def A3(I,I1,I2,I3,j,theta,file):
     if(I1 == I2 or I1 == I3 or I2 == I3):
         return
     u = uFunction(I, I1, I2, I3, j, theta)
     A = AFunction(I, I1, I2, j, theta)
     k = kFunction(I, I1, I2, I3, j, theta)
     M = max(I1, I2, I3)
-    if(u < 0.0 and u > -1.0 and (M == I1)):
+    if(u < 0.0 and u > -1.0 and A>0.0 and k<1.0 and (M == I2)):
+        print(I1, I2, I3, A, u, k)
+        # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
+        #            ' '+str(A)+' '+str(u)+' '+str(k)+'\n')
+        file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta)+'\n')
+
+
+def C1(I, I1, I2, I3, j, theta, file):
+    if(I1 == I2 or I1 == I3 or I2 == I3):
+        return
+    u = uFunction(I, I1, I2, I3, j, theta)
+    A = AFunction(I, I1, I2, j, theta)
+    k = kFunction(I, I1, I2, I3, j, theta)
+    M = max(I1, I2, I3)
+    if(u < 0.0 and u > -1.0 and A>0.0 and k<1.0 and (M == I1)):
         print(I1, I2, I3, A, u, k)
         # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
         #            ' '+str(A)+' '+str(u)+' '+str(k)+'\n')
@@ -64,10 +78,19 @@ mois = np.arange(1.0, 121.0, 5.0)
 thetas = np.arange(-180.0, 181.0, 5.0)
 
 file = open('../../out/contourParams.dat', 'w')
-for i1 in mois:
-    for i2 in mois:
-        for i3 in mois:
-            for th in thetas:
-                A3C1(9.5, i1, i2, i3, 6.5, th, file)
+# for i1 in mois:
+#     for i2 in mois:
+#         for i3 in mois:
+#             for th in thetas:
+#                 # A3C1(9.5, i1, i2, i3, 6.5, th, file)
+
+class FindContourParams:
+    def __init__(self,moi):
+        self.moi=moi
+    def ShowMOI(self):
+        return self.moi
+
+x=FindContourParams(4)
+print(x.ShowMOI())
 
 file.close()
