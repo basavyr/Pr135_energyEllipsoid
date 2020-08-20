@@ -78,7 +78,22 @@ def C1(I, I1, I2, I3, j, theta, file):
 
     # this condition can provide a set of valid parameters, but ignoring positive A and subunitary k
     paramSetSize = 0
-    if(u < 0.0 and u > -1.0 and (M == I1)):
+
+    #! implements RELAXED conditions
+    #! C1_0 Only positive A's are considered => value of k can be anything
+    #! C1_1 Only positive k's are considered subunitary=> value of A can be anything
+
+    # ? C1_0
+    if(u < 0.0 and u > -1.0 and A > 0.0 and (M == I1)):
+        # print(I1, I2, I3, A, u, k)
+        paramSetSize = paramSetSize+1
+        # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
+        #            ' '+str(A)+' '+str(u)+' '+str(k)+'\n')
+        file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' ' +
+                   str(theta)+' | A='+str(A)+' u='+str(u)+' k='+str(k)+'\n')
+
+    # ? C1_1
+    elif u < 0.0 and u > -1.0 and k < 1.0 and (M == I1):
         # print(I1, I2, I3, A, u, k)
         paramSetSize = paramSetSize+1
         # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
@@ -101,8 +116,8 @@ thetas = np.arange(-180.0, 181.0, 5.0)
 class FindContourParams:
     def __init__(self, moi):
         self.moi = moi
-    mois = np.arange(1, 121, 10.0)
-    thetas = np.arange(-180, 180, 10.0)
+    mois = np.arange(1, 121, 5.0)
+    thetas = np.arange(-180, 180, 5.0)
     spin0 = 9.5
     j = 5.5
 

@@ -69,3 +69,9 @@ The energies depend on the parameters discussed in the previous sections (e.g. t
 [This commit](https://github.com/basavyr/Pr135_energyEllipsoid/commit/07ffa22cfa5d255e5e22a5b37be8d57ab499833e) adds the workflow. 
 
 [ ] - the update must solve [the issue](https://github.com/basavyr/Pr135_energyEllipsoid/issues/1).
+
+## Relaxation conditions
+
+Difference in the number of *pseudo-valid* parameters found using the two partial conditions described in the RoamResearch document (namely, `C1_0` and `C1_1`).
+
+![](2020-08-20-17-30-59.png)
