@@ -58,7 +58,9 @@ def A3(I, I1, I2, I3, j, theta, file):
         print(I1, I2, I3, A, u, k)
         # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
         #            ' '+str(A)+' '+str(u)+' '+str(k)+'\n')
-        file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta)+'\n')
+        file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' ' +
+                   str(theta)+' | A='+str(A)+' u='+str(u)+' k='+str(k)+'\n')
+
 
 # the point C1 should be a minimum for negative values of u
 
@@ -70,11 +72,20 @@ def C1(I, I1, I2, I3, j, theta, file):
     A = AFunction(I, I1, I2, j, theta)
     k = kFunction(I, I1, I2, I3, j, theta)
     M = max(I1, I2, I3)
-    if(u < 0.0 and u > -1.0 and A > 0.0 and k < 1.0 and (M == I1)):
-        print(I1, I2, I3, A, u, k)
+
+    # this condition will not provide any real and valid set of parameters (MOI,th)
+    # if(u < 0.0 and u > -1.0 and A > 0.0 and k < 1.0 and (M == I1)):
+
+    # this condition can provide a set of valid parameters, but ignoring positive A and subunitary k
+    paramSetSize = 0
+    if(u < 0.0 and u > -1.0 and (M == I1)):
+        # print(I1, I2, I3, A, u, k)
+        paramSetSize = paramSetSize+1
         # file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta) +
         #            ' '+str(A)+' '+str(u)+' '+str(k)+'\n')
-        file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' '+str(theta)+'\n')
+        file.write(str(I1)+'  '+str(I2) + ' '+str(I3) + ' ' +
+                   str(theta)+' | A='+str(A)+' u='+str(u)+' k='+str(k)+'\n')
+    return paramSetSize
 
 
 mois = np.arange(1.0, 121.0, 5.0)
@@ -102,12 +113,20 @@ class FindContourParams:
         if(self.moi == 1):
             file = open('../../out/contourParams.dat', 'w')
             print('Find 1-axis quantization')
+            totalSizeParams = 0
             for i1 in self.mois:
                 for i2 in self.mois:
                     for i3 in self.mois:
                         for theta in self.thetas:
-                            C1(self.spin0, i1, i2, i3, self.j, theta, file)
+                            c = C1(self.spin0, i1, i2, i3, self.j, theta, file)
+                            if(c == 1):
+                                totalSizeParams = totalSizeParams+1
+            print(
+                f'The search found {totalSizeParams} total parameter sets...')
+            file.write('The search found '+str(totalSizeParams) +
+                       ' total parameter sets...\n')
             file.close()
+
         elif self.moi == 2:
             file = open('../../out/contourParams.dat', 'w')
             print('Find 2-axis quantization')
@@ -121,5 +140,5 @@ class FindContourParams:
             print('No quantization chosen...')
 
 
-x = FindContourParams(2)
+x = FindContourParams(1)
 x.FindParams()
