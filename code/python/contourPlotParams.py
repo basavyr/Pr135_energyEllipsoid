@@ -77,7 +77,6 @@ def C1(I, I1, I2, I3, j, theta, file):
 mois = np.arange(1.0, 121.0, 5.0)
 thetas = np.arange(-180.0, 181.0, 5.0)
 
-file = open('../../out/contourParams.dat', 'w')
 # for i1 in mois:
 #     for i2 in mois:
 #         for i3 in mois:
@@ -87,18 +86,34 @@ file = open('../../out/contourParams.dat', 'w')
 class FindContourParams:
     def __init__(self,moi):
         self.moi=moi
+    mois=np.arange(1,121,10.0)
+    thetas=np.arange(-180,180,10.0)
+    spin0=9.5
+    j=5.5
     def ShowMOI(self):
         return self.moi
     def FindParams(self):
         if(self.moi==1):
+            file = open('../../out/contourParams.dat', 'w')
             print('Find 1-axis quantization')
+            for i1 in self.mois:
+                for i2 in self.mois:
+                    for i3 in self.mois:
+                        for theta in self.thetas:
+                            C1(self.spin0,i1,i2,i3,self.j,theta,file)
+            file.close()
         elif self.moi==2:
+            file = open('../../out/contourParams.dat', 'w')
             print('Find 2-axis quantization')
+            for i1 in self.mois:
+                for i2 in self.mois:
+                    for i3 in self.mois:
+                        for theta in self.thetas:
+                            A3(self.spin0,i1,i2,i3,self.j,theta,file)
+            file.close()
         else:
             print('No quantization chosen...')
 
 
-x=FindContourParams(4)
+x=FindContourParams(2)
 x.FindParams()
-
-file.close()
