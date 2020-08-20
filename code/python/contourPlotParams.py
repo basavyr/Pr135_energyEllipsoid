@@ -89,8 +89,16 @@ class FindContourParams:
         self.moi=moi
     def ShowMOI(self):
         return self.moi
+    def FindParams(self):
+        if(self.moi==1):
+            print('Find 1-axis quantization')
+        elif self.moi==2:
+            print('Find 2-axis quantization')
+        else:
+            print('No quantization chosen...')
+
 
 x=FindContourParams(4)
-print(x.ShowMOI())
+x.FindParams()
 
 file.close()
