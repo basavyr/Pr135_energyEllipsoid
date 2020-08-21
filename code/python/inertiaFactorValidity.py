@@ -77,14 +77,13 @@ plt.savefig('../../out/potential.pdf',bbox_inches='tight')
 
 mois=np.arange(1.0,120.5,10.0)
 
-f=open('../../out/validParams.dat','w')
+# f=open('../../out/validParams.dat','w')
 
-for i1 in mois:
-    for i2 in mois:
-        for i3 in mois:
-            for th in thetas:
-                if(ValidConditions(9.5,i1,i2,i3,5.5,th)):
-                    # print(i1,i2,i3,th)
-                    f.write(str(i1)+" "+str(i2)+" "+str(i3)+" "+str(th)+"\n")
+# for i1 in mois:
+#     for i2 in mois:
+#         for i3 in mois:
+#             for th in thetas:
+#                     print(i1,i2,i3,th)
+#                     f.write(str(i1)+" "+str(i2)+" "+str(i3)+" "+str(th)+"\n")
 
-f.close()
+# f.close()
